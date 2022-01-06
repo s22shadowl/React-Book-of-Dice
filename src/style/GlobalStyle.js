@@ -116,7 +116,7 @@ const OauthButtons = () => {
         onFailure={googleOauth.onFailureFunc}
         cookiePolicy={"single_host_origin"}
       />
-      <UserControlButton>Facebook</UserControlButton> 
+      <UserControlButton>Facebook</UserControlButton>
       <UserControlButton>Twitter</UserControlButton>
     </OauthButtonsWrap>
   )

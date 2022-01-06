@@ -13,7 +13,7 @@ import circle_img from "../circle.png"
 import * as Yup from "yup"
 
 const PopUpBoxWrap = styled.div`
-  position: absolute;
+  position: fixed;
   width: 300px;
   height: 10vh;
   background-color: ${theme_color.text_sub2};
@@ -30,7 +30,7 @@ const PopUpBoxMask = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+  z-index: 99;
 `
 const IsLoadingWrap = styled.div`
   position: absolute;

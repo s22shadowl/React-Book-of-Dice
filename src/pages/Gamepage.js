@@ -100,7 +100,7 @@ const RollDiceBar = ({
     setEditingRollDice(false)
     return
   }
-  const handleRolldice = (str) => {
+  const handleRollDice = (str) => {
     if (!str) {
       setEditingRollDice(false)
       return
@@ -117,7 +117,7 @@ const RollDiceBar = ({
       Number(flatAndEffectNum[1])
     )
   }
-  const infixToPostfix = (str) => {
+  /* const infixToPostfix = (str) => {
     //現在是計算 postfix
     const items = []
     class Stack {
@@ -186,7 +186,7 @@ const RollDiceBar = ({
         return Number(stack.toString())
       }
     })
-  }
+  } */
   return (
     <RollDiceBarWrap>
       <div>請依照格式丟骰</div>
@@ -197,7 +197,7 @@ const RollDiceBar = ({
       />
       <button
         onClick={() => {
-          handleRolldice(command)
+          handleRollDice(command)
         }}
       >
         送出
