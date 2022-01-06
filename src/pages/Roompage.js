@@ -76,31 +76,19 @@ const UserSettingBar = ({ user }) => {
   )
 }
 
-const RoomSettingBar = ({ setFilter, getRoomList }) => {
+const RoomSettingBar = ({
+  setFilter,
+  getRoomList,
+  setEditingCreateRoom,
+  setEditingSearchRoom,
+}) => {
   // 功能完成
-  const [EditingCreateRoom, setEditingCreateRoom] = useState(false)
-  const [EditingSearchRoom, setEditingSearchRoom] = useState(false)
   const { token, setToken, isLoading, setIsLoading } = useContext(GlobalContext)
   const [offset, setOffset] = useState(0)
   const [roomCount, setRoomCount] = useState(0)
   WebAPI.getRoomCount(token).then((res) => setRoomCount(res.roomCount))
   return (
     <RoomSettingBarWrap>
-      {EditingCreateRoom && (
-        <CreateRoomForm
-          show={EditingCreateRoom}
-          onHide={() => setEditingCreateRoom(false)}
-          setEditingCreateRoom={setEditingCreateRoom}
-        />
-      )}
-      {EditingSearchRoom && (
-        <SearchRoomForm
-          show={EditingSearchRoom}
-          onHide={() => setEditingSearchRoom(false)}
-          setEditingSearchRoom={setEditingSearchRoom}
-          getRoomList={getRoomList}
-        />
-      )}
       <RoomSettingButton
         onClick={() => {
           setEditingCreateRoom(true)
@@ -159,6 +147,8 @@ const RoomPage = () => {
     useContext(GlobalContext)
   const [rooms, setRooms] = useState([])
   const [filter, setFilter] = useState("None")
+  const [EditingCreateRoom, setEditingCreateRoom] = useState(false)
+  const [EditingSearchRoom, setEditingSearchRoom] = useState(false)
   const FILTER_MAP = {
     None: (room) => room,
     My: (room) => room.userId === user,
@@ -227,9 +217,29 @@ const RoomPage = () => {
 
   return (
     <RoomPageWrap>
+      {EditingCreateRoom && (
+        <CreateRoomForm
+          show={EditingCreateRoom}
+          onHide={() => setEditingCreateRoom(false)}
+          setEditingCreateRoom={setEditingCreateRoom}
+        />
+      )}
+      {EditingSearchRoom && (
+        <SearchRoomForm
+          show={EditingSearchRoom}
+          onHide={() => setEditingSearchRoom(false)}
+          setEditingSearchRoom={setEditingSearchRoom}
+          getRoomList={getRoomList}
+        />
+      )}
       <UserSettingBar user={user} />
       <RoomList />
-      <RoomSettingBar setFilter={setFilter} getRoomList={getRoomList} />
+      <RoomSettingBar
+        setFilter={setFilter}
+        getRoomList={getRoomList}
+        setEditingCreateRoom={setEditingCreateRoom}
+        setEditingSearchRoom={setEditingSearchRoom}
+      />
     </RoomPageWrap>
   )
 }
