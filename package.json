@@ -1,7 +1,7 @@
 {
-  "name": "hw1",
+  "name": "book_of_dice",
   "version": "1.0.0",
-  "description": "hw1",
+  "description": "book_of_dice",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -106,7 +106,7 @@ const RoomControlButton = styled.button`
 `
 
 const OauthButtons = () => {
-  // FaceBook 與 Twitter 串接未實作
+  // FaceBook 與 Twitter 串接未實作﹐待處理
   return (
     <OauthButtonsWrap>
       <GoogleLogin
