@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: "main.[hash].js",
     // 編譯檔案名稱
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "public"),
     // 編譯檔案的位置
   },
   module: {
